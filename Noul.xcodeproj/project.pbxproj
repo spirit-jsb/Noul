@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		50D763172672BD73003A54E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D763162672BD72003A54E6 /* Foundation.framework */; };
-		50D763192672BD7A003A54E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D763182672BD7A003A54E6 /* AVFoundation.framework */; };
-		50E8292E2672B4B300CA0DA6 /* Noul.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E8292C2672B4B300CA0DA6 /* Noul.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50D763162672BD72003A54E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50D763182672BD7A003A54E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		50E829202672B48000CA0DA6 /* Noul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50E8292C2672B4B300CA0DA6 /* Noul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noul.h; sourceTree = "<group>"; };
 		50E8292D2672B4B300CA0DA6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -25,7 +22,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50D763192672BD7A003A54E6 /* AVFoundation.framework in Frameworks */,
 				50D763172672BD73003A54E6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,13 +29,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		50D763122672BD61003A54E6 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		50D763152672BD72003A54E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,8 +58,6 @@
 		50E8292B2672B4B300CA0DA6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				50D763122672BD61003A54E6 /* Core */,
-				50E8292C2672B4B300CA0DA6 /* Noul.h */,
 				50E8292D2672B4B300CA0DA6 /* Info.plist */,
 			);
 			path = Sources;
@@ -83,7 +70,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50E8292E2672B4B300CA0DA6 /* Noul.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +100,7 @@
 		50E829172672B48000CA0DA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					50E8291F2672B48000CA0DA6 = {
 						CreatedOnToolsVersion = 12.5;
@@ -292,7 +278,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,7 +304,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
