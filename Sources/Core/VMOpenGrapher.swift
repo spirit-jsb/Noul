@@ -93,7 +93,7 @@ public struct VMOpenGrapher {
 
 public struct VMOpenGrapherConfiguration {
   
-  var customHeader: [String: String]?
+  public var customHeader: [String: String]?
 }
 
 #endif
