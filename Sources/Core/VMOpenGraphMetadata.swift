@@ -20,7 +20,7 @@ public enum VMOpenGraphMetadata: String, CaseIterable {
   
   // Optional Metadata
   case audio
-  case description
+  case `description`
   case determiner
   case locale
   case localeAlternate = "locale:alternate"
