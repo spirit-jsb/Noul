@@ -130,11 +130,11 @@ class NoulTests: XCTestCase {
       XCTAssert(og?[.url] == nil)
       XCTAssert(og?[.image] == nil)
       XCTAssert(og?[.description] == nil)
-            
+      
       XCTAssert((error! as NSError).domain == NoulTestsError.test._domain)
     }
   }
-    
+  
   func test_unexpected_status_code_error() {
     let expectation = expectation(description: "test noul request error")
     
@@ -206,9 +206,10 @@ class NoulTests: XCTestCase {
       XCTAssert((error as? VMOpenGraphError) == VMOpenGraphError.encodingError)
     }
   }
-
   
   func test_html_string() {
+    let expectation = expectation(description: "test noul request error")
+    
     let test_bundle = Bundle(for: type(of: self))
     let test_ogp_html_file_path = test_bundle.path(forResource: "ogp", ofType: "html")!
     
@@ -218,22 +219,33 @@ class NoulTests: XCTestCase {
     
     let test_ogp_html_string = String(data: test_ogp_html_raw_data, encoding: .utf8)!
     
+    var error: Error?
+    var og: [VMOpenGraphMetadata: String]?
+    
     VMOpenGrapher(htmlString: test_ogp_html_string)
       .parser()
       .sink { (completion) in
         switch completion {
-          case .failure(let error):
-            XCTAssert(false, "parser open graph error \(error)")
+          case .failure(let _error):
+            error = _error
           case .finished:
             break
         }
-      } receiveValue: { (openGraph) in
-        XCTAssertTrue(openGraph[.title] == "The Rock")
-        XCTAssertTrue(openGraph[.url] == "https://www.imdb.com/title/tt0117500/")
-        XCTAssertTrue(openGraph[.image] == "https://ia.media-imdb.com/images/rock.jpg")
-        XCTAssertTrue(openGraph[.description] == "Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond.")
+        
+        expectation.fulfill()
+      } receiveValue: { (_og) in
+        og = _og
       }
       .store(in: &self.cancellables)
+    
+    waitForExpectations(timeout: 10) { _ in
+      XCTAssert(og?[.title] == "The Rock")
+      XCTAssert(og?[.url] == "https://www.imdb.com/title/tt0117500/")
+      XCTAssert(og?[.image] == "https://ia.media-imdb.com/images/rock.jpg")
+      XCTAssert(og?[.description] == "Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond.")
+      
+      XCTAssert(error == nil)
+    }
   }
   
   func test_open_graph_parser() {
