@@ -11,7 +11,7 @@ let package = Package(
     .library(name: "Noul", targets: ["Noul"]),
   ],
   targets: [
-    .target(name: "Noul", path: "Sources"),
+    .target(name: "Noul", path: "Sources/Core"),
   ],
   swiftLanguageVersions: [
     .v5
